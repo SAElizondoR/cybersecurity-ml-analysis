@@ -4,10 +4,9 @@ from scipy.io import arff
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
-def procesar_datos_entrada(ruta, n_muestra=400):
+def procesar_datos_entrada(ruta):
     # Leer el archivo ARFF
-    datos = pd.DataFrame(arff.loadarff(ruta)[0]).sample(n=n_muestra,
-        random_state=42)
+    datos = pd.DataFrame(arff.loadarff(ruta)[0])
 
     # Convertir formato de columnas objeto a cadena de caracteres
     for col in datos.columns:
